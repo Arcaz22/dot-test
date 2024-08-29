@@ -7,7 +7,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     TypeOrmModule.forRootAsync({
       useFactory: (configService: ConfigService) => {
         const postgresUri = configService.get<string>('POSTGRES_URI');
-        console.log('POSTGRES_URI:', postgresUri); // Tambahkan log di sini
         return {
           type: 'postgres',
           url: postgresUri,
